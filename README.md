@@ -1,4 +1,7 @@
+---
+
 # Portfolio — Iwo Michał Szempruch
+This Portfolio has a **Website version:** https://iwoszempruch.github.io/Portfolio/
 
 Welcome! This repository is my personal portfolio focused on **research**, **laboratory work**, and **software projects for life sciences** (especially microbiology/bioinformatics).
 
@@ -8,8 +11,7 @@ Welcome! This repository is my personal portfolio focused on **research**, **lab
 
 **Live demo:** https://bacterial-growth-curves-analyser-pc0se7igi.vercel.app  
 **Source code:** https://github.com/IwoSzempruch/Bacterial_Growth_Curves_Analyser  
-**Example dataset (JSON assignment):** https://bacterial-growth-curves-analyser-pc0se7igi.vercel.app/examples/example-dataset.json  
-*(If the link temporarily returns 404, please refresh after a minute — Vercel redeploy may still be propagating.)*
+**Example dataset (JSON assignment):** https://bacterial-growth-curves-analyser-pc0se7igi.vercel.app/examples/example-dataset.json
 
 ### What this app is for
 
@@ -34,25 +36,25 @@ This project aims to provide **laboratory staff without data-analysis expertise*
 1) Open the **Live demo** and click **Start workflow**  
 2) In the **Setup** tab, step **“0. Import assignment”**  
    - import the example assignment JSON file:  
-     https://bacterial-growth-curves-analyser-pc0se7igi.vercel.app/examples/example-dataset.json
-3) Scroll to the bottom of the Setup tab and click **NEXT**
-4) In **Raw Data**, click **SEND TO BLANK CORRECTION**
-5) At the bottom of **Blank Check**, click **APPLY BLANK CORRECTION**
-6) Scroll to the bottom of **Blank Check** and click **NEXT**
-7) At the top of **Curves Smoothing**, click **LOESS (ALL)**
+     https://bacterial-growth-curves-analyser-pc0se7igi.vercel.app/examples/example-dataset.json  
+3) Scroll to the bottom of the Setup tab and click **NEXT**  
+4) In **Raw Data**, click **SEND TO BLANK CORRECTION**  
+5) At the bottom of **Blank Check**, click **APPLY BLANK CORRECTION**  
+6) Scroll to the bottom of **Blank Check** and click **NEXT**  
+7) At the top of **Curves Smoothing**, click **LOESS (ALL)**  
 8) Click **Next: Parameters**
 
 **Tech stack:** TypeScript, React, Vite
 
 ---
 
-## Research Poster: MaoP protein and E. coli chromosome organization
+## Research Poster: MaoP protein and *E. coli* chromosome organization
 
 This repository also contains a poster from a project I contributed to during my B.Sc. studies.
 
 ### My contribution
 
-During my undergraduate studies, I **constructed (not “built”) 32 E. coli strains** using:
+During my undergraduate studies, I **constructed 32 *E. coli* strains** using:
 - bacteriophage **transduction**
 - **molecular cloning**
 - **homologous recombination**
