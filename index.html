@@ -112,6 +112,22 @@
     .workflow .dot{width:8px;height:8px;box-shadow:none;background:linear-gradient(135deg,var(--accent2),var(--accent3));border-radius:50%;}
     .screenshot{width:100%;border-radius:18px;border:1px solid var(--border);background:#0c1325;box-shadow:0 18px 40px rgba(0,0,0,.35);overflow:hidden;}
     .screenshot img{display:block;width:100%;height:100%;object-fit:cover;}
+    .intro{color:var(--muted);margin-top:6px;font-size:15px;max-width:860px;}
+    details summary.summary-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      margin:8px 0 6px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:linear-gradient(135deg,rgba(34,197,94,.16),rgba(14,165,233,.12));
+      color:var(--text);
+      font-weight:700;
+      cursor:pointer;
+      list-style:none;
+    }
+    details summary.summary-toggle::-webkit-details-marker{display:none;}
     footer{
       margin-top:30px;
       color:var(--muted2);
@@ -138,6 +154,7 @@
           <p class="eyebrow">Portfolio</p>
           <h1>Iwo Michal Szempruch</h1>
           <p class="sub">Research, Laboratory, Bioinformatics and Web Tools for life sciences</p>
+          <p class="intro">Portfolio of Iwo Michal Szempruch. Welcome - this highlights my research, laboratory work, and software projects for life sciences, starting with the featured web app for bacterial growth curve analysis.</p>
         </div>
       </div>
       <nav class="nav" aria-label="Quick links">
@@ -150,8 +167,22 @@
       <article class="section">
         <span class="label">1) Web app project</span>
         <h3>Bacterial Growth Curves Analyser</h3>
-        <p>Portfolio of Iwo Michal Szempruch. Welcome - this highlights my research, laboratory work, and software projects for life sciences, starting with the featured web app for bacterial growth curve analysis.</p>
         <p>A fast, unified workflow for labs and students to inspect growth-curve datasets from different instruments without coding. Constructed to align with current consensus practices for early-stage analysis. Designed for lab users without programming or statistics background.</p>
+        <details>
+          <summary class="summary-toggle">Show how to test</summary>
+          <p style="margin:6px 0;font-weight:600;color:var(--text);">How to test the current demo (step-by-step)</p>
+          <ol class="list" style="padding-left:18px;">
+            <li>Open the Live demo and click Start workflow</li>
+            <li>In the Setup tab, step "0. Import assignment"</li>
+            <li>import the example assignment JSON file:<br />https://bacterial-growth-curves-analyser-pc0se7igi.vercel.app/examples/example-dataset.json</li>
+            <li>Scroll to the bottom of the Setup tab and click NEXT</li>
+            <li>In Raw Data, click SEND TO BLANK CORRECTION</li>
+            <li>At the bottom of Blank Check, click APPLY BLANK CORRECTION</li>
+            <li>Scroll to the bottom of Blank Check and click NEXT</li>
+            <li>At the top of Curves Smoothing, click LOESS (ALL)</li>
+            <li>Click Next: Parameters</li>
+          </ol>
+        </details>
         <h4 class="subhead">Key features</h4>
         <ul class="list">
           <li>Multi-format import (in progress) with standardized workflow.</li>
@@ -181,17 +212,6 @@
           <div class="step"><span class="dot"></span>Smoothing</div>
           <div class="step"><span class="dot"></span>Parameters/Export</div>
         </div>
-        <details>
-          <summary style="cursor:pointer;margin:6px 0 4px;color:var(--muted);">Show step-by-step</summary>
-          <ol class="list" style="padding-left:18px;">
-            <li>Start workflow.</li>
-            <li>Setup -> 0. Import assignment: load the example JSON.</li>
-            <li>Scroll to the bottom -> NEXT.</li>
-            <li>Raw Data -> SEND TO BLANK CORRECTION.</li>
-            <li>Blank Check -> APPLY BLANK CORRECTION -> NEXT.</li>
-            <li>Curves Smoothing -> LOESS (ALL) -> Next: Parameters.</li>
-          </ol>
-        </details>
         <div class="screenshot" aria-label="Preview of the web app">
           <img src="Screenshot-GCA.png" alt="Screenshot of the Bacterial Growth Curves Analyser app" loading="lazy" />
         </div>
@@ -200,8 +220,8 @@
 
       <article class="section">
         <span class="label">2) Poster</span>
-        <h3>MaoP protein and E. coli chromosome organization</h3>
-        <p>Bachelor research poster. I constructed 32 E. coli strains using phage transduction, molecular cloning, homologous recombination, and heat-shock/electroporation transformation to probe the role of MaoP in chromosome organization.</p>
+        <h3>MaoP protein and <em>E. coli</em> chromosome organization</h3>
+        <p>Research poster. I constructed 32 <em>E. coli</em> strains using phage transduction, molecular cloning, homologous recombination, and heat-shock/electroporation transformation to probe the role of MaoP in chromosome organization. After constructing the strains, I ran fluorescence measurements, analyzed the data, and generated plots with a Python program I wrote. My work significantly contributed to the project.</p>
         <div class="cta-row">
           <a class="btn primary" href="Poster-Biology-and-Physics-of-Chromosomes.pdf" target="_blank" rel="noopener">View poster (PDF)</a>
           <a class="btn secondary" href="Poster-Biology-and-Physics-of-Chromosomes.pdf" download>Download PDF</a>
