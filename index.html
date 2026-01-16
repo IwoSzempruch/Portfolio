@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio of Iwo Michal Szempruch</title>
+  <meta name="description" content="Portfolio of Iwo Michal Szempruch: web app project and research poster focused on microbiology and bioinformatics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2-family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070a15;
+      --panel:#0e1427;
+      --panel-2:#10172f;
+      --border:rgba(255,255,255,.12);
+      --text:#f4f6fb;
+      --muted:#c5ccd8;
+      --muted2:#9aa3b5;
+      --accent:#22c55e;
+      --accent2:#0ea5e9;
+      --accent3:#f59e0b;
+      --radius:20px;
+      --shadow:0 26px 70px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;}
+    body{
+      font-family:'Space Grotesk','Segoe UI',sans-serif;
+      background:radial-gradient(circle at 18% 18%,rgba(34,197,94,.18),transparent 36%),
+                 radial-gradient(circle at 78% 8%,rgba(14,165,233,.16),transparent 32%),
+                 radial-gradient(circle at 68% 82%,rgba(245,158,11,.12),transparent 38%),
+                 var(--bg);
+      color:var(--text);
+      line-height:1.65;
+    }
+    .wrap{max-width:1400px;margin:0 auto;padding:52px 32px 84px;}
+    header{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:20px 22px;
+      border:1px solid var(--border);
+      border-radius:24px;
+      background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+      backdrop-filter:blur(6px);
+      box-shadow:var(--shadow);
+    }
+    .id-block{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+    .dot{width:14px;height:14px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 0 10px rgba(34,197,94,.16);}
+    .eyebrow{font-size:14px;letter-spacing:.32px;color:var(--muted2);text-transform:uppercase;}
+    h1{font-size:clamp(52px,6vw,74px);line-height:1.02;letter-spacing:.3px;}
+    .sub{font-size:18px;color:var(--muted);margin-top:8px;}
+    .nav{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end;}
+    .chip{
+      padding:11px 14px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      transition:transform .12s ease,border-color .12s ease,background .12s ease;
+    }
+    .chip:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.09);}
+    .hero{
+      margin-top:30px;
+      padding:26px 28px;
+      background:var(--panel-2);
+      border:1px solid var(--border);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+    .hero h2{font-size:clamp(38px,4.5vw,52px);margin:6px 0 10px;}
+    .hero p{color:var(--muted);font-size:17px;max-width:980px;}
+    .sections{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:18px;}
+    .section{
+      padding:26px 28px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow:0 20px 50px rgba(0,0,0,.38);
+    }
+    .label{font-size:14px;color:var(--muted2);letter-spacing:.38px;text-transform:uppercase;margin-bottom:6px;display:block;}
+    .section h3{font-size:clamp(30px,3.6vw,38px);margin-bottom:10px;}
+    .section p{color:var(--muted);margin-bottom:14px;font-size:16px;}
+    .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 15px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:15px;
+      border:1px solid transparent;
+      transition:transform .12s ease,box-shadow .12s ease,background .12s ease,border-color .12s ease;
+    }
+    .btn.primary{background:linear-gradient(135deg,var(--accent),#15803d);color:#07120a;box-shadow:0 12px 30px rgba(34,197,94,.28);} 
+    .btn.primary:hover{transform:translateY(-1px);}
+    .btn.secondary{background:rgba(255,255,255,.08);color:var(--text);border-color:var(--border);} 
+    .btn.secondary:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.18);} 
+    .btn.ghost{background:transparent;color:var(--text);border-color:var(--border);} 
+    .btn.ghost:hover{border-color:rgba(255,255,255,.2);transform:translateY(-1px);} 
+    ul.list{color:var(--muted);font-size:15px;margin:10px 0 0 16px;} 
+    ul.list li{margin:6px 0;}
+    .subhead{margin:12px 0 6px;font-size:16px;letter-spacing:.2px;}
+    .workflow{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 6px;}
+    .workflow .step{display:flex;align-items:center;gap:6px;padding:8px 10px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.04);font-size:13px;color:var(--muted);}
+    .workflow .dot{width:8px;height:8px;box-shadow:none;background:linear-gradient(135deg,var(--accent2),var(--accent3));border-radius:50%;}
+    .screenshot{width:100%;border-radius:18px;border:1px solid var(--border);background:#0c1325;box-shadow:0 18px 40px rgba(0,0,0,.35);overflow:hidden;}
+    .screenshot img{display:block;width:100%;height:100%;object-fit:cover;}
+    footer{
+      margin-top:30px;
+      color:var(--muted2);
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:12px;
+      font-size:13px;
+    }
+    @media(max-width:860px){
+      .wrap{padding:40px 18px 68px;}
+      header{align-items:flex-start;}
+      .nav{justify-content:flex-start;}
+      .sections{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="id-block">
+        <span class="dot" aria-hidden="true"></span>
+        <div>
+          <p class="eyebrow">Portfolio</p>
+          <h1>Iwo Michal Szempruch</h1>
+          <p class="sub">Research, Laboratory, Bioinformatics and Web Tools for life sciences</p>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Quick links">
+        <a class="chip" href="https://github.com/IwoSzempruch/Portfolio" target="_blank" rel="noopener">GitHub Portfolio</a>
+        <a class="chip" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </header>
+
+    <section class="sections">
+      <article class="section">
+        <span class="label">1) Web app project</span>
+        <h3>Bacterial Growth Curves Analyser</h3>
+        <p>Portfolio of Iwo Michal Szempruch. Welcome - this highlights my research, laboratory work, and software projects for life sciences, starting with the featured web app for bacterial growth curve analysis.</p>
+        <p>A fast, unified workflow for labs and students to inspect growth-curve datasets from different instruments without coding. Constructed to align with current consensus practices for early-stage analysis. Designed for lab users without programming or statistics background.</p>
+        <h4 class="subhead">Key features</h4>
+        <ul class="list">
+          <li>Multi-format import (in progress) with standardized workflow.</li>
+          <li>Assignment-driven steps for consistent analysis.</li>
+          <li>Blank correction, QC, and LOESS smoothing.</li>
+          <li>Growth parameters plus export options.</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn primary" href="https://bacterial-growth-curves-analyser-pc0se7igi.vercel.app" target="_blank" rel="noopener">Open web app</a>
+          <a class="btn secondary" href="https://bacterial-growth-curves-analyser-pc0se7igi.vercel.app/examples/example-dataset.json" download>Download example dataset</a>
+          <a class="btn ghost" href="https://github.com/IwoSzempruch/Bacterial_Growth_Curves_Analyser" target="_blank" rel="noopener">Source code</a>
+        </div>
+        <p>Status: active development (prototype / demo). If the example link does not load immediately, refresh once.</p>
+        <h4 class="subhead">Planned improvements</h4>
+        <ul class="list">
+          <li>Language and layout consistency across the UI.</li>
+          <li>Plot styling presets and imports.</li>
+          <li>Statistical overlays: SD, CI, summaries.</li>
+          <li>Bug fixes, stability, landing-page tutorial video.</li>
+          <li>Support for more instrument export formats.</li>
+        </ul>
+        <h4 class="subhead">Workflow</h4>
+        <div class="workflow" aria-label="Workflow overview">
+          <div class="step"><span class="dot"></span>Setup</div>
+          <div class="step"><span class="dot"></span>Raw Data QC</div>
+          <div class="step"><span class="dot"></span>Blank Correction</div>
+          <div class="step"><span class="dot"></span>Smoothing</div>
+          <div class="step"><span class="dot"></span>Parameters/Export</div>
+        </div>
+        <details>
+          <summary style="cursor:pointer;margin:6px 0 4px;color:var(--muted);">Show step-by-step</summary>
+          <ol class="list" style="padding-left:18px;">
+            <li>Start workflow.</li>
+            <li>Setup -> 0. Import assignment: load the example JSON.</li>
+            <li>Scroll to the bottom -> NEXT.</li>
+            <li>Raw Data -> SEND TO BLANK CORRECTION.</li>
+            <li>Blank Check -> APPLY BLANK CORRECTION -> NEXT.</li>
+            <li>Curves Smoothing -> LOESS (ALL) -> Next: Parameters.</li>
+          </ol>
+        </details>
+        <div class="screenshot" aria-label="Preview of the web app">
+          <img src="Screenshot-GCA.png" alt="Screenshot of the Bacterial Growth Curves Analyser app" loading="lazy" />
+        </div>
+        <p style="margin-top:10px;color:var(--muted);">Tech stack: TypeScript, React, Vite.</p>
+      </article>
+
+      <article class="section">
+        <span class="label">2) Poster</span>
+        <h3>MaoP protein and E. coli chromosome organization</h3>
+        <p>Bachelor research poster. I constructed 32 E. coli strains using phage transduction, molecular cloning, homologous recombination, and heat-shock/electroporation transformation to probe the role of MaoP in chromosome organization.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="Poster-Biology-and-Physics-of-Chromosomes.pdf" target="_blank" rel="noopener">View poster (PDF)</a>
+          <a class="btn secondary" href="Poster-Biology-and-Physics-of-Chromosomes.pdf" download>Download PDF</a>
+        </div>
+        <div class="screenshot" aria-label="Preview of the research poster" style="margin-top:10px;">
+          <img src="Screenshot-Poster.png" alt="Screenshot of the research poster about MaoP and E. coli chromosome organization" loading="lazy" />
+        </div>
+        <p style="margin-top:12px;color:var(--muted2);">File is stored in this repository.</p>
+      </article>
+    </section>
+
+    <footer>
+      <span>(c) <span id="y"></span> Iwo Michal Szempruch</span>
+      <span>GitHub: <a href="https://github.com/IwoSzempruch" target="_blank" rel="noopener" style="color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);">github.com/IwoSzempruch</a></span>
+      <span>LinkedIn: <a href="https://www.linkedin.com/in/iwo-szempruch" target="_blank" rel="noopener" style="color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);">linkedin.com/in/iwo-szempruch</a></span>
+      <span>Phone: +48 721 751 060</span>
+      <span>Email: <a href="mailto:iwoszempruch@gmail.com" style="color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);">iwoszempruch@gmail.com</a></span>
+      <span>Hosted on GitHub Pages; demo on Vercel</span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
