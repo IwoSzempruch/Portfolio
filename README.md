@@ -9,7 +9,7 @@ Welcome! This repository is my personal portfolio focused on **research**, **lab
 
 ## Featured Project: Bacterial Growth Curves Analyser (Web App)
 
-**Live demo:** bacterial-growth-curves-analyser-4sj16sq81.vercel.app  
+**Live demo:** [bacterial-growth-curves-analyser-4sj16sq81.vercel.app](https://bacterial-growth-curves-analyser.vercel.app/)  
 **Source code:** https://github.com/IwoSzempruch/Bacterial_Growth_Curves_Analyser  
 **Example dataset (JSON assignment):** https://bacterial-growth-curves-analyser-pc0se7igi.vercel.app/examples/example-dataset.json
 
