@@ -1,0 +1,21 @@
+<ul class="thesis-details">
+  <li>
+    Investigated how MaoP influences transcription of the ribosomal operons <em>rrsB</em>, <em>rrsC</em>, and <em>rrsG</em> in <em>Escherichia coli</em> by constructing chromosomal promoter–reporter fusions with mScarlet in wild-type, Δ<em>maoP</em>, and Δ<em>maoS</em> backgrounds.
+  </li>
+
+  <li>
+    Constructed and validated engineered bacterial strains using <strong>PCR</strong>, <strong>&lambda; Red homologous recombination</strong>, <strong>electroporation</strong>, <strong>Flp/FRT cassette excision</strong>, <strong>diagnostic PCR</strong>, <strong>agarose gel electrophoresis</strong>, and <strong>sequencing</strong>.
+  </li>
+
+  <li>
+    Generated additional reporter strains by <strong>P1 phage transduction</strong> and prepared a complementation plasmid by <strong>PCR amplification</strong>, <strong>restriction digestion</strong>, <strong>ligation</strong>, <strong>bacterial transformation</strong>, and sequence verification.
+  </li>
+
+  <li>
+    Performed <strong>plate-reader fluorescence assays</strong> and analysed fluorescence data normalized to <strong>OD600</strong> using custom <strong>Python</strong> scripts developed for the project to average replicates, calculate fluorescence-to-growth ratios, and generate summary statistics for plotting.
+  </li>
+
+  <li>
+    Showed that MaoP has a predominantly local effect on ribosomal operon expression, with the strongest effect observed for <em>rrsC</em>, the operon located closest to the <em>maoS</em> region.
+  </li>
+</ul>

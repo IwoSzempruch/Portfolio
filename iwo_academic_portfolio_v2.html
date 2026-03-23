@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iwo Szempruch &mdash; Portfolio</title>
+  <meta name="description" content="Portfolio of Iwo Szempruch &mdash; molecular biology, microbiology, biological data analysis, and research tool development." />
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --surface: #ffffff;
+      --surface-soft: #f3f4f1;
+      --border: #d8ddd7;
+      --text: #1c2430;
+      --muted: #5a6676;
+      --accent: #244d86;
+      --accent-soft: #e9eff8;
+      --shadow: 0 12px 34px rgba(20, 32, 48, 0.06);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 247, 245, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(216, 221, 215, 0.9);
+    }
+
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    header {
+      padding: 72px 0 34px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, 340px);
+      gap: 32px;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(36, 77, 134, 0.04), rgba(36, 77, 134, 0) 55%), var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      padding: 42px;
+    }
+
+    .hero-copy {
+      min-width: 0;
+    }
+
+    .hero-photo {
+      justify-self: end;
+      width: min(100%, 320px);
+    }
+
+    .portrait-frame {
+      border: 1px solid rgba(36, 77, 134, 0.1);
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--accent-soft);
+      box-shadow: 0 16px 30px rgba(20, 32, 48, 0.08);
+      aspect-ratio: 4 / 5;
+    }
+
+    .portrait-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 24%;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 4.2vw, 4rem);
+      line-height: 1.06;
+      max-width: 12ch;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: clamp(1.55rem, 2vw, 2.15rem);
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .intro {
+      max-width: 68ch;
+      color: var(--muted);
+      font-size: 1.04rem;
+      margin: 0;
+    }
+
+    main section {
+      padding: 20px 0 26px;
+    }
+
+    .section-head {
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 64ch;
+      color: var(--muted);
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .content-card {
+      height: 100%;
+      overflow: auto;
+      scrollbar-gutter: stable;
+      padding: 30px;
+    }
+
+    .label {
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .lead {
+      color: var(--muted);
+      margin: 12px 0 18px;
+    }
+
+    .point-list {
+      margin: 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .thesis-title {
+      font-size: 1.34rem;
+      margin-bottom: 4px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+      background: var(--surface-soft);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .visual-stack {
+      display: grid;
+      gap: 16px;
+      height: 100%;
+      min-height: 0;
+    }
+
+    .visual-card {
+      height: 100%;
+      overflow: auto;
+      scrollbar-gutter: stable;
+      padding: 16px;
+    }
+
+    .placeholder-frame {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fbfcfa;
+      overflow: hidden;
+    }
+
+    .poster-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .zoom-trigger {
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: zoom-in;
+    }
+
+    .app-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .app-preview-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-preview-frame {
+      display: grid;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      flex: 1;
+      min-height: 0;
+      padding: 14px;
+    }
+
+    .app-preview-shot {
+      min-height: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #eef2f7;
+      border: 1px solid rgba(36, 77, 134, 0.1);
+    }
+
+    .caption {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .intern-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .bgca-grid {
+      display: grid;
+      grid-template-columns: 0.98fr 1.02fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(17, 25, 37, 0.6);
+    }
+
+    .modal.is-open {
+      display: flex;
+    }
+
+    .modal-panel {
+      width: min(860px, 100%);
+      max-height: min(88vh, 920px);
+      overflow: auto;
+      background: var(--surface);
+      border: 1px solid rgba(216, 221, 215, 0.95);
+      border-radius: 28px;
+      box-shadow: 0 24px 60px rgba(17, 25, 37, 0.18);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 24px 24px 10px;
+    }
+
+    .modal-title {
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .modal-subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .modal-close {
+      flex-shrink: 0;
+      min-width: 42px;
+      min-height: 42px;
+      padding: 0;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .modal-body {
+      padding: 0 24px 24px;
+      color: var(--muted);
+    }
+
+    .modal-body p:first-child,
+    .modal-body ul:first-child {
+      margin-top: 0;
+    }
+
+    .modal-body ul {
+      margin: 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .image-modal .modal-panel {
+      width: min(1120px, 100%);
+      overflow: visible;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .image-modal .modal-header {
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 0 12px;
+    }
+
+    .image-modal .modal-body {
+      padding: 0;
+    }
+
+    .image-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .image-toolbar .button {
+      min-width: 46px;
+    }
+
+    .zoom-indicator {
+      color: #f7f7f5;
+      font-size: 0.94rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      min-width: 64px;
+      text-align: center;
+    }
+
+    .image-view {
+      margin: 0;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 24px 60px rgba(17, 25, 37, 0.22);
+    }
+
+    .image-stage {
+      position: relative;
+      width: 100%;
+      height: min(82vh, 900px);
+      overflow: hidden;
+      background:
+        linear-gradient(45deg, #f1f3f7 25%, transparent 25%, transparent 75%, #f1f3f7 75%, #f1f3f7),
+        linear-gradient(45deg, #f1f3f7 25%, transparent 25%, transparent 75%, #f1f3f7 75%, #f1f3f7);
+      background-position: 0 0, 14px 14px;
+      background-size: 28px 28px;
+      cursor: grab;
+      touch-action: none;
+    }
+
+    .image-stage.is-dragging {
+      cursor: grabbing;
+    }
+
+    .image-canvas {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform-origin: center center;
+      will-change: transform;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .image-canvas img {
+      display: block;
+      width: 752px;
+      height: auto;
+      background: #fff;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .image-hint {
+      margin: 10px 0 0;
+      color: rgba(247, 247, 245, 0.88);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    footer {
+      padding: 24px 0 48px;
+    }
+
+    .footer-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 22px 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 18px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .grid-two,
+      .intern-grid,
+      .bgca-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        gap: 24px;
+      }
+
+      .hero-photo {
+        justify-self: start;
+        width: min(100%, 280px);
+      }
+
+      header {
+        padding-top: 44px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 12px 0;
+      }
+
+      .hero,
+      .content-card,
+      .modal-header,
+      .modal-body {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .hero,
+      .content-card {
+        padding-top: 24px;
+        padding-bottom: 24px;
+      }
+
+      .modal {
+        padding: 12px;
+      }
+
+      .image-stage {
+        height: min(72vh, 680px);
+      }
+
+      .footer-card {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <div class="container nav">
+      <div class="brand">Iwo Micha&#322; Szempruch</div>
+      <div class="nav-links">
+        <a href="#thesis">Thesis</a>
+        <a href="#internships">Internships</a>
+        <a href="#bgca">BGCA</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <div class="hero">
+        <div class="hero-copy">
+          <h1>Iwo Micha&#322; Szempruch</h1>
+          <p class="intro">
+            I am a B.Sc. graduate in Genetics and Experimental Biology from the University of Gda&#324;sk, Poland. I have research
+            experience in bacterial genetics, molecular methods, microscopy-based workflows, and quantitative interpretation
+            of biological data. My work sits at the intersection of experimental biology and computational thinking, with a
+            growing focus on tools that support biological research.
+          </p>
+        </div>
+        <div class="hero-photo">
+          <div class="portrait-frame">
+            <img class="portrait-image" src="Photo-Iwo.jpeg" alt="Portrait of Iwo Micha&#322; Szempruch" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="thesis">
+      <div class="container">
+        <div class="section-head">
+          <h2>Thesis, poster, and conference presentation</h2>
+          <p>
+            My bachelor&apos;s thesis focused on chromosome biology in <em>Escherichia coli</em> and combined experimental work
+            with data analysis. The project also formed the basis of my poster presentation at an international conference.
+          </p>
+        </div>
+
+        <div class="grid-two">
+          <article class="card content-card">
+            <div class="label">Bachelor&apos;s Thesis</div>
+            <h3 class="thesis-title">The role of MaoP protein in coordination of transcription and chromosomal DNA replication in <em>Escherichia coli</em></h3>
+            <div class="meta">University of Gda&#324;sk &middot; supervised by Prof. Monika Glinkowska</div>
+            <p class="lead">
+              This project explored the role of MaoP in bacterial chromosome biology and required both laboratory work
+              and quantitative interpretation of results.
+            </p>
+            <ul class="point-list">
+              <li>Constructed more than 30 <em>E. coli</em> strains as part of the thesis project.</li>
+              <li>Used Python to analyse experimental data generated during the study.</li>
+              <li>This work was essential in a larger project, which was presented at a conference with the poster available below.</li>
+            </ul>
+            <div class="action-row">
+              <button class="button js-modal-trigger" type="button" data-modal-target="thesis-modal">Details of work</button>
+              <button class="button js-modal-trigger" type="button" data-modal-target="abstract-modal">Read abstract</button>
+            </div>
+          </article>
+
+          <div class="visual-stack">
+            <article class="card visual-card">
+              <div class="label">Poster</div>
+              <div class="placeholder-frame">
+                <button class="zoom-trigger js-modal-trigger" type="button" data-modal-target="poster-image-modal" aria-label="Open enlarged poster preview">
+                  <img class="poster-image" src="Screenshot-Poster.png" alt="Screenshot of the conference poster" />
+                </button>
+              </div>
+              <div class="caption">Presented at: The Biology and Physics of Prokaryotic Chromosomes VII, York, United Kingdom, 16&ndash;19/09/2025.</div>
+              <div class="action-row">
+                <a class="button" href="Poster-Biology-and-Physics-of-Chromosomes.pdf" target="_blank" rel="noreferrer">Download pdf</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="internships">
+      <div class="container">
+        <div class="section-head">
+          <h2>Research internships</h2>
+          <p>
+            My internship experience includes bacterial microscopy workflows at KU Leuven, Belgium, and molecular methods at the Genetics Laboratory of the Gda&#324;sk University of Physical Education and Sport, Poland (AWFiS).
+          </p>
+        </div>
+
+        <div class="intern-grid">
+          <article class="card content-card">
+            <div class="label">KU Leuven</div>
+            <h3>Research internship &mdash; <a href="https://www.goverslab.com/" target="_blank" rel="noreferrer">Prof. Sander Govers&apos; Lab</a></h3>
+            <div class="meta">Department of Biology, KU Leuven &middot; July 2025 &ndash; September 2025</div>
+            <ul class="point-list">
+              <li>Performed <strong>phase-contrast microscopy</strong> with <strong>fluorescent dyes</strong> imaging of <strong>21 <em>Escherichia coli</em> strains</strong> across <strong>3 growth conditions</strong>, each in <strong>3 replicates</strong>.</li>
+              <li>Independently prepared bacterial cultures, carried out growth workflows, performed <strong>staining</strong>, and acquired microscopy images after initial training.</li>
+              <li>Troubleshot and resolved <strong>contamination issues</strong> encountered during experimental work.</li>
+              <li>Imaged <strong>232 samples</strong> while maintaining clear experimental documentation and regular progress reporting.</li>
+              <li>Prepared training data for a <strong>machine learning</strong> quality-control pipeline by manually labeling <strong>5% of the dataset</strong> at the <strong>single-cell level</strong>.</li>
+              <li>Performed <strong>single-cell feature extraction</strong> and downstream analysis to derive biological insights from an image-based dataset.</li>
+              <li>Contributed substantially to an ongoing <strong>microbiology</strong> and <strong>image-analysis</strong> research project.</li>
+            </ul>
+          </article>
+
+          <article class="card content-card">
+            <div class="label">AWFiS</div>
+            <h3>Internship &mdash; <a href="https://awf.gda.pl/laboratoria/laboratorium-genetyki/" target="_blank" rel="noreferrer">Genetics Laboratory</a></h3>
+            <div class="meta">Gda&#324;sk University of Physical Education and Sport &middot; July 2024 &ndash; September 2024</div>
+            <div class="meta">Supervised by Dr. Kinga Humi&#324;ska-Lisowska</div>
+            <ul class="point-list">
+              <li>Performed <strong>qPCR-based genotyping</strong> of <strong>1,000 human genomes</strong> in a project investigating genotype&ndash;athletic performance associations, focusing on identification of <strong>allelic variants</strong> in collected samples.</li>
+              <li>Performed <strong>DNA extraction</strong> in a project related to the <strong>human microbiome pangenome</strong>.</li>
+              <li>Completed training in the operation of <strong>multiplex ELISA instrumentation</strong>.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="bgca">
+      <div class="container">
+        <div class="section-head">
+          <h2>Bacterial Growth Curves Analyser</h2>
+          <p>
+            This project reflects my interest in developing practical software for biological data workflows.
+          </p>
+        </div>
+
+        <div class="bgca-grid">
+          <article class="card content-card">
+            <div class="label">Independent project</div>
+            <h3><a href="https://bacterial-growth-curves-analyser.vercel.app/" target="_blank" rel="noreferrer">Bacterial Growth Curves Analyser</a></h3>
+            <p class="lead">
+              BGCA is a web-based tool designed to support the analysis and interpretation of microbial growth experiments.
+              It was developed in response to a practical problem I encountered while working with growth-curve data:
+              different laboratories use different plate readers and export data in multiple file formats, while key analytical
+              steps such as blank selection, curve smoothing, and log-phase detection are often handled in inconsistent ways.
+              These differences can lead to conflicting interpretations. BGCA aims to make preliminary bacterial growth
+              analysis more accessible, standardized, and better aligned with current literature recommendations. The project
+              connects my background in experimental microbiology with a growing interest in computational biology and
+              research-support software, and it is still in development.
+            </p>
+
+            <ul class="point-list">
+              <li>Developed to address real challenges in analysing microbial growth-reader data across multiple devices and file formats.</li>
+              <li>Designed to support more consistent handling of steps such as blank correction, curve smoothing, and growth-phase interpretation.</li>
+              <li>Represents independent project development at the interface of biology, data analysis, and scientific software.</li>
+            </ul>
+            <div class="action-row">
+              <a class="button primary" href="https://bacterial-growth-curves-analyser.vercel.app/" target="_blank" rel="noreferrer">Open app</a>
+            </div>
+          </article>
+
+          <article class="card visual-card app-preview-card">
+            <div class="label">App preview</div>
+            <div class="placeholder-frame app-preview-frame">
+              <div class="app-preview-shot">
+                <img class="app-image" src="app_preview_1.png" alt="Screenshot of the Bacterial Growth Curves Analyser app" />
+              </div>
+              <div class="app-preview-shot">
+                <img class="app-image" src="Screenshot-GCA.png" alt="Screenshot of the Bacterial Growth Curves Analyser app" />
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-card">
+        <div class="footer-left">Contact</div>
+        <div class="footer-right">
+          <a href="mailto:iwoszempruch@gmail.com">iwoszempruch@gmail.com</a>
+          <a href="https://www.linkedin.com/in/iwoszempruch/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="thesis-modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="thesis-modal-title">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="thesis-modal-title">Details of work</h2>
+        </div>
+        <button class="modal-close js-modal-close" type="button" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>Investigated how MaoP influences transcription of the ribosomal operons <em>rrsB</em>, <em>rrsC</em>, and <em>rrsG</em> in <em>Escherichia coli</em> by constructing chromosomal promoter&ndash;reporter fusions with mScarlet in wild-type, &Delta;<em>maoP</em>, and &Delta;<em>maoS</em> backgrounds.</li>
+          <li>Constructed and validated engineered bacterial strains using <strong>PCR</strong>, <strong>&lambda; Red homologous recombination</strong>, <strong>electroporation</strong>, <strong>Flp/FRT cassette excision</strong>, <strong>diagnostic PCR</strong>, <strong>agarose gel electrophoresis</strong>, and <strong>sequencing</strong>.</li>
+          <li>Generated additional reporter strains by <strong>P1 phage transduction</strong> and prepared a complementation plasmid by <strong>PCR amplification</strong>, <strong>restriction digestion</strong>, <strong>ligation</strong>, <strong>bacterial transformation</strong>, and sequence verification.</li>
+          <li>Performed <strong>plate-reader fluorescence assays</strong> and analysed fluorescence data normalized to <strong>OD600</strong> using custom <strong>Python</strong> scripts developed for the project to average replicates, calculate fluorescence-to-growth ratios, and generate summary statistics for plotting.</li>
+          <li>Showed that MaoP has a predominantly local effect on ribosomal operon expression, with the strongest effect observed for <em>rrsC</em>, the operon located closest to the <em>maoS</em> region.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="abstract-modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="abstract-modal-title">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="abstract-modal-title">Abstract</h2>
+        </div>
+        <button class="modal-close js-modal-close" type="button" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          The bacterial chromosome is condensed and hierarchically organized &ndash; from nucleoid-associated proteins (NAPs),
+          which bend, loop, or bundle DNA strands, through topological domains formed by DNA supercoiling, to macrodomains,
+          within which DNA remains in close physical proximity and shows limited mobility compared to unstructured regions.
+          The formation of macrodomains in <em>Escherichia coli</em> has been most thoroughly studied in the case of the Terminus
+          Macrodomain, while the molecular details of other macrodomains remain less understood.
+        </p>
+        <p>
+          It has been shown that the MaoP protein, together with the <em>maoS</em> site, participates in restricting the mobility
+          of the Origin Macrodomain. Preliminary results also suggest a link to the stringent response, due to MaoP&apos;s association
+          with transcription of ribosomal operons and aminoacyl-tRNA synthetase genes, as well as the impairment of the
+          replication block during this response. MaoP acts through regulation of Origin Macrodomain condensation and positioning.
+        </p>
+        <p>
+          This study describes the construction of <em>E. coli</em> strains carrying genetic fusions of ribosomal operon promoters
+          with the gene encoding the mScarlet fluorescent protein, including strains with deletions of the <em>maoP</em> gene and
+          of the <em>maoS</em> sequence together with the promoters of the surrounding <em>maoP</em> and <em>hdfR</em> genes. Strains were
+          complemented with pGB2 plasmids carrying <em>maoP</em> or <em>maoP</em> together with <em>hdfR</em>. Fluorescence measurements were
+          analysed in relation to the optical density of these cultures. MaoP was shown to locally suppress expression of the
+          <em>rrsC</em> operon located closest to the <em>maoS</em> sequence.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal image-modal" id="poster-image-modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Enlarged poster preview">
+      <div class="modal-header">
+        <div class="image-toolbar">
+          <button class="button js-zoom-out" type="button" aria-label="Zoom out">-</button>
+          <div class="zoom-indicator js-zoom-indicator">100%</div>
+          <button class="button js-zoom-in" type="button" aria-label="Zoom in">+</button>
+          <button class="button js-zoom-reset" type="button">Reset</button>
+        </div>
+        <button class="modal-close js-modal-close" type="button" aria-label="Close enlarged poster">&times;</button>
+      </div>
+      <div class="modal-body">
+        <figure class="image-view">
+          <div class="image-stage js-image-stage">
+            <div class="image-canvas js-image-canvas">
+              <img src="Screenshot-Poster.png" alt="Enlarged preview of the conference poster" />
+            </div>
+          </div>
+        </figure>
+        <p class="image-hint">Use mouse wheel or buttons to zoom. Drag the poster to navigate.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const triggers = document.querySelectorAll(".js-modal-trigger");
+    const modals = document.querySelectorAll(".modal");
+    const posterModal = document.getElementById("poster-image-modal");
+    const imageStage = posterModal?.querySelector(".js-image-stage");
+    const imageCanvas = posterModal?.querySelector(".js-image-canvas");
+    const posterImage = imageCanvas?.querySelector("img");
+    const zoomIndicator = posterModal?.querySelector(".js-zoom-indicator");
+    const zoomInButton = posterModal?.querySelector(".js-zoom-in");
+    const zoomOutButton = posterModal?.querySelector(".js-zoom-out");
+    const zoomResetButton = posterModal?.querySelector(".js-zoom-reset");
+    const zoomState = {
+      scale: 1,
+      minScale: 1,
+      maxScale: 4,
+      x: 0,
+      y: 0,
+      dragging: false,
+      pointerId: null,
+      startX: 0,
+      startY: 0,
+      baseX: 0,
+      baseY: 0
+    };
+
+    function getBounds() {
+      if (!imageStage || !posterImage) return null;
+      return {
+        stageWidth: imageStage.clientWidth,
+        stageHeight: imageStage.clientHeight,
+        imageWidth: posterImage.clientWidth,
+        imageHeight: posterImage.clientHeight
+      };
+    }
+
+    function clampOffset(value, limit) {
+      if (limit <= 0) return 0;
+      return Math.min(limit, Math.max(-limit, value));
+    }
+
+    function clampPan() {
+      const bounds = getBounds();
+      if (!bounds) return;
+      const scaledWidth = bounds.imageWidth * zoomState.scale;
+      const scaledHeight = bounds.imageHeight * zoomState.scale;
+      const limitX = Math.max(0, (scaledWidth - bounds.stageWidth) / 2);
+      const limitY = Math.max(0, (scaledHeight - bounds.stageHeight) / 2);
+      zoomState.x = clampOffset(zoomState.x, limitX);
+      zoomState.y = clampOffset(zoomState.y, limitY);
+    }
+
+    function renderZoom() {
+      if (!imageCanvas || !zoomIndicator) return;
+      clampPan();
+      imageCanvas.style.transform = `translate(calc(-50% + ${zoomState.x}px), calc(-50% + ${zoomState.y}px)) scale(${zoomState.scale})`;
+      zoomIndicator.textContent = `${Math.round(zoomState.scale * 100)}%`;
+      if (imageStage) {
+        imageStage.classList.toggle("is-draggable", zoomState.scale > zoomState.minScale);
+      }
+    }
+
+    function resetZoom() {
+      zoomState.scale = 1;
+      zoomState.x = 0;
+      zoomState.y = 0;
+      zoomState.dragging = false;
+      zoomState.pointerId = null;
+      imageStage?.classList.remove("is-dragging");
+      renderZoom();
+    }
+
+    function zoomAt(nextScale, originX, originY) {
+      const bounds = getBounds();
+      if (!bounds) return;
+      const clampedScale = Math.min(zoomState.maxScale, Math.max(zoomState.minScale, nextScale));
+      if (clampedScale === zoomState.scale) return;
+
+      const stageRect = imageStage.getBoundingClientRect();
+      const offsetX = originX - stageRect.left - stageRect.width / 2 - zoomState.x;
+      const offsetY = originY - stageRect.top - stageRect.height / 2 - zoomState.y;
+      const ratio = clampedScale / zoomState.scale;
+
+      zoomState.x -= offsetX * (ratio - 1);
+      zoomState.y -= offsetY * (ratio - 1);
+      zoomState.scale = clampedScale;
+      renderZoom();
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+      if (modal === posterModal) resetZoom();
+    }
+
+    function openModal(modal) {
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+      if (modal === posterModal) resetZoom();
+    }
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const modal = document.getElementById(trigger.dataset.modalTarget);
+        if (modal) openModal(modal);
+      });
+    });
+
+    modals.forEach((modal) => {
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal || event.target.classList.contains("js-modal-close")) {
+          closeModal(modal);
+        }
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      document.querySelectorAll(".modal.is-open").forEach(closeModal);
+    });
+
+    imageStage?.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      const delta = event.deltaY < 0 ? 0.2 : -0.2;
+      zoomAt(zoomState.scale + delta, event.clientX, event.clientY);
+    }, { passive: false });
+
+    imageStage?.addEventListener("pointerdown", (event) => {
+      if (zoomState.scale <= zoomState.minScale) return;
+      zoomState.dragging = true;
+      zoomState.pointerId = event.pointerId;
+      zoomState.startX = event.clientX;
+      zoomState.startY = event.clientY;
+      zoomState.baseX = zoomState.x;
+      zoomState.baseY = zoomState.y;
+      imageStage.classList.add("is-dragging");
+      imageStage.setPointerCapture(event.pointerId);
+    });
+
+    imageStage?.addEventListener("pointermove", (event) => {
+      if (!zoomState.dragging || event.pointerId !== zoomState.pointerId) return;
+      zoomState.x = zoomState.baseX + (event.clientX - zoomState.startX);
+      zoomState.y = zoomState.baseY + (event.clientY - zoomState.startY);
+      renderZoom();
+    });
+
+    function stopDragging(event) {
+      if (!imageStage || !zoomState.dragging || event.pointerId !== zoomState.pointerId) return;
+      zoomState.dragging = false;
+      imageStage.classList.remove("is-dragging");
+      if (imageStage.hasPointerCapture(event.pointerId)) {
+        imageStage.releasePointerCapture(event.pointerId);
+      }
+      zoomState.pointerId = null;
+    }
+
+    imageStage?.addEventListener("pointerup", stopDragging);
+    imageStage?.addEventListener("pointercancel", stopDragging);
+
+    zoomInButton?.addEventListener("click", () => {
+      const rect = imageStage.getBoundingClientRect();
+      zoomAt(zoomState.scale + 0.25, rect.left + rect.width / 2, rect.top + rect.height / 2);
+    });
+
+    zoomOutButton?.addEventListener("click", () => {
+      const rect = imageStage.getBoundingClientRect();
+      zoomAt(zoomState.scale - 0.25, rect.left + rect.width / 2, rect.top + rect.height / 2);
+    });
+
+    zoomResetButton?.addEventListener("click", resetZoom);
+
+    if (posterImage?.complete) {
+      resetZoom();
+    } else {
+      posterImage?.addEventListener("load", resetZoom);
+    }
+  </script>
+</body>
+</html>

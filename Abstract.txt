@@ -1,0 +1,21 @@
+Abstract 
+The bacterial chromosome is condensed and hierarchically organized – from nucleoid
+associated proteins (NAPs), which bend, loop, or bundle DNA strands, through 
+topological domains formed by DNA supercoiling, to macrodomains, within which DNA 
+remains in close physical proximity and shows limited mobility compared to unstructured 
+regions [1], [2]. The formation of Macrodomains in Escherichia coli has been most 
+thoroughly studied in the case of the Terminus Macrodomain. Although the molecular 
+details of its positioning and formation are still unclear, these processes are even less 
+understood in other macrodomains [3]. It has been shown that the MaoP protein, together 
+with the maoS site, participates in restricting the mobility of the Origin Macrodomain. 
+Preliminary results also suggest a link to the stringent response, due to MaoP’s association 
+with transcription of ribosomal operons and aminoacyl-tRNA synthetases genes, as well 
+as the impairment of the replication block during this response. MaoP acts through 
+regulation of Origin Macrodomain condensation and positioning. This study describes 
+the construction of E. coli strains carrying genetic fusions of ribosomal operon promoters 
+with the gene encoding the mScaret fluorescent protein, including strains with deletions 
+of the maoP gene and of the maoS sequence together with the promoters of the 
+surrounding maoP and hdfR genes. Strains have been complemented with pGB2 plasmids 
+carrying maoP or maoP together with hdfR. Fluorescence measurements were analysed 
+in relation to the optical density of these cultures. MaoP was shown to locally suppress 
+expression of the rrsC operon located closest to the maoS sequence. 
